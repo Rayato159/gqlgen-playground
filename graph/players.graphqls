@@ -1,0 +1,31 @@
+type Player {
+    id: ID!
+    name: String!
+    level: Int!
+    class: PlayerClass
+    items: [Item!]!
+}
+
+enum PlayerClass {
+    WARRIOR
+    MAGE
+    ROGUE
+}
+
+type Item {
+    id: ID!
+    name: String!
+}
+
+type Query {
+    getPlayers: [Player!]!
+}
+
+input NewPlayer {
+    name: String!
+    class: PlayerClass!
+}
+
+type Mutation {
+    createPlayer(req: NewPlayer!): Player!
+}
